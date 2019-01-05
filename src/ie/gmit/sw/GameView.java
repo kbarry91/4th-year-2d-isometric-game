@@ -35,7 +35,7 @@ public class GameView extends JPanel implements ActionListener  {
 	private Timer timer; //Controls the repaint interval.
 
 	//Do we really need two models like this?
-	private int[][] matrix;
+	private ObjectSprite[][] matrix;
 //	private int[][] things;
 	private ObjectSprite[][] things;
 	
@@ -50,7 +50,7 @@ public class GameView extends JPanel implements ActionListener  {
 	}
 	
 //	public GameView(int[][] matrix, int[][] things, PlayerSprite player) throws Exception {
-	public GameView(int[][] matrix, ObjectSprite[][] things, PlayerSprite player) throws Exception {
+	public GameView(ObjectSprite[][] matrix, ObjectSprite[][] things, PlayerSprite player) throws Exception {
 		this.player = player;
 		img = new ImageManager();
 		iso = new Iso();
@@ -97,18 +97,19 @@ public class GameView extends JPanel implements ActionListener  {
 		
 		for (int row = 0; row < matrix.length; row++) {
 			for (int col = 0; col < matrix[row].length; col++) {
-				imageIndex = matrix[row][col];
+			//	imageIndex = matrix[row][col];
 				
-				if (imageIndex >= 0 && imageIndex < tiles.length) {
+			//	if (imageIndex >= 0 && imageIndex < tiles.length) {
 					//Paint the ground tiles
 					if (isIsometric) {
 						x1 = iso.getIsoX(col, row);
 						y1 = iso.getIsoY(col, row);
 						
-						g2.drawImage(tiles[Properties.getDefaultImageIndex()], x1, y1, null);
-						if (imageIndex > Properties.getDefaultImageIndex()) {
-							g2.drawImage(tiles[imageIndex], x1, y1, null);
-						}
+						//g2.drawImage(tiles[Properties.getDefaultImageIndex()], x1, y1, null);
+						//if (imageIndex > Properties.getDefaultImageIndex()) {
+						//	g2.drawImage(tiles[imageIndex], x1, y1, null);
+						//}
+						g2.drawImage(matrix[row][col].getImage(), x1, y1, null);
 					} else {
 						x1 = col * Properties.getTileWidth();
 						y1 = row * Properties.getTileHeight();
@@ -126,7 +127,7 @@ public class GameView extends JPanel implements ActionListener  {
 					
 					g2.drawImage(things[row][col].getImage(), x1, y1, null);
 					
-				}
+			//	}
 			}
 		}
 		
