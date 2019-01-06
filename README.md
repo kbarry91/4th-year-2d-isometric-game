@@ -10,9 +10,9 @@ The end point is disabled untill all chests collected.
 
 ## Controls
 ----------
-Rotate player	: Arrow keys
-Action		: C (used to destroy chests and exit level)
-Move Player	: X
+- Rotate player	: Arrow keys
+- Action		: C (used to destroy chests and exit level)
+- Move Player	: X
 
 ## Features
 ----------
@@ -28,37 +28,37 @@ Move Player	: X
 ----------
 #### Factory Pattern: 
 ----------
-	Factory pattern is used twice to create both game objects and game tiles. This allows the the required object to be stated and returned.
-	The factory allows easy implementation for when the user decides what sprite to user for the player.
+Factory pattern is used twice to create both game objects and game tiles. This allows the the required object to be stated and returned.
+The factory allows easy implementation for when the user decides what sprite to user for the player.
 
 ##### Singleton Patterns:
 ----------
-	To prevent the recreation of already made objects some classes are implemented as singletons.
-	Tile factory and sprite factory are singleton. 
-	Game view is also a singleton as only one game view is needed at any time.
+To prevent the recreation of already made objects some classes are implemented as singletons.
+Tile factory and sprite factory are singleton. 
+Game view is also a singleton as only one game view is needed at any time.
 
 #### Flyweight Objects:
 ----------
-    All game sprites have been implented as Extrinsic state flyweight objects. 
-	This allows one instance of a sprite to be created and reused many times in the game.
-	Only one object is created in memory.
-	An intrinsic state is applied in the factorys, by mapping images to keys in the factory.
+All game sprites have been implented as Extrinsic state flyweight objects. 
+This allows one instance of a sprite to be created and reused many times in the game.
+Only one object is created in memory.
+An intrinsic state is applied in the factorys, by mapping images to keys in the factory.
 
 #### Loading:
 ----------
-	All game sounds are loaded to memory at the start of the game and then called when needed.
-	Different sounds are saved as enum for easy reference.
-	This helps to save memory and increase the speed of the game as it doesnt need to reload the sound files everytime.
-	Game maps can be easily created by creating a matrix and stating the instance of the sprite desired.
+All game sounds are loaded to memory at the start of the game and then called when needed.
+Different sounds are saved as enum for easy reference.
+This helps to save memory and increase the speed of the game as it doesnt need to reload the sound files everytime.
+Game maps can be easily created by creating a matrix and stating the instance of the sprite desired.
 
 #### Adjustments from original code:
 ----------
-	All event actions are controlled by an EventManager.
-	Image loading is all done in the ImageManager.
-	Game properties are set in Properties class.
-	Isometric co-ordinates are controlled by Isometric class.
-	Resources are loaded using factory classes.
-	ObjectSprite is a concrete abstract class that implements the SpriteInterface and is a parent class of sprite objects to allow each to have its own values.
+- All event actions are controlled by an EventManager.
+- Image loading is all done in the ImageManager.
+- Game properties are set in Properties class.
+- Isometric co-ordinates are controlled by Isometric class.
+- Resources are loaded using factory classes.
+- ObjectSprite is a concrete abstract class that implements the SpriteInterface and is a parent class of sprite objects to allow each to have its own values.
 
 #### Recommended improvements given more time
 ----------
