@@ -3,9 +3,9 @@ package ie.gmit.sw;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import ie.gmit.sw.sprites.Chest;
+import ie.gmit.sw.sprites.ChestSprite;
 import ie.gmit.sw.sprites.Direction;
-import ie.gmit.sw.sprites.Hole;
+import ie.gmit.sw.sprites.HoleSprite;
 import ie.gmit.sw.sprites.ObjectSprite;
 import ie.gmit.sw.sprites.PlayerSprite;
 import ie.gmit.sw.sprites.SpriteFactory;
@@ -41,12 +41,13 @@ public class EventManager implements KeyListener {
 		} else if (e.getKeyCode() == KeyEvent.VK_Z) {
 			GameView view = GameView.getInstance();
 			view.toggleView();
+			
 
 		} else if (e.getKeyCode() == KeyEvent.VK_C) {// player has triggered action
 
 			System.out.println("Debug: EventManger: C(attack) pressed");
 			// Player has landed on chest grid
-			if (objects[player.getPosition().getY()][+player.getPosition().getX()] instanceof Chest) {
+			if (objects[player.getPosition().getY()][+player.getPosition().getX()] instanceof ChestSprite) {
 				MenuDialogs.showInfo("Player collected chest :" + (player.getChestsCollected() + 1) + "/3",
 						"Game Progress ");
 				player.setChestsCollected(player.getChestsCollected() + 1);
@@ -59,7 +60,7 @@ public class EventManager implements KeyListener {
 				}
 			}
 			// If player presses C while on hole and all chests collected
-			if (objects[player.getPosition().getY()][player.getPosition().getX()] instanceof Hole) {
+			if (objects[player.getPosition().getY()][player.getPosition().getX()] instanceof HoleSprite) {
 				if (player.getChestsCollected() == 3)
 					player.setEndPointActivated(true);
 				else {

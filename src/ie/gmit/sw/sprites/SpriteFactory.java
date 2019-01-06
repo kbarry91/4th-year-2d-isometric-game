@@ -79,28 +79,28 @@ public class SpriteFactory {
 		return tree;
 	}
 
-	public static Air airInstance() throws Exception {
-		Air air = new Air();
+	public static BlankSprite airInstance() throws Exception {
+		BlankSprite air = new BlankSprite();
 		// set image
 		air.image = imageMap.get("airImage");
 		return  air;	}
 
-	public static Hole holeInstance() throws Exception {
-		Hole hole = new Hole();
+	public static HoleSprite holeInstance() throws Exception {
+		HoleSprite hole = new HoleSprite();
 		// set image
 		hole.image = imageMap.get("holeImage");
 		return  hole;
 	}
 
-	public static Chest chestInstance() throws Exception {
-		Chest chest = new Chest();
+	public static ChestSprite chestInstance() throws Exception {
+		ChestSprite chest = new ChestSprite();
 		// set image
 		chest.image = imageMap.get("chestImage");
 		return  chest;
 	}
 
-	public static Sign signInstance() throws Exception {
-		Sign sign = new Sign();
+	public static SignSprite signInstance() throws Exception {
+		SignSprite sign = new SignSprite();
 		// set image
 		sign.image = imageMap.get("signImage");
 		return  sign;

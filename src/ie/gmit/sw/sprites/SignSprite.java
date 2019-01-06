@@ -1,15 +1,14 @@
 package ie.gmit.sw.sprites;
 
 /**
- * Represents a Hole Sprite.
+ * Represents a Chest Sprite.
  * 
  * @author Kevin Barry
  */
-public class Tree extends ObjectSprite {
-
+public class SignSprite extends ObjectSprite {
+	
 	// Flyweight object
 	// Extrinsic state
-	public Tree() {
+	public SignSprite() {
 	}
-
 }

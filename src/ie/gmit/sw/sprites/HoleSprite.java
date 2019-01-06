@@ -5,11 +5,10 @@ package ie.gmit.sw.sprites;
  * 
  * @author Kevin Barry
  */
-public class Tree extends ObjectSprite {
+public class HoleSprite extends ObjectSprite {
 
 	// Flyweight object
 	// Extrinsic state
-	public Tree() {
+	public HoleSprite() {
 	}
-
 }
