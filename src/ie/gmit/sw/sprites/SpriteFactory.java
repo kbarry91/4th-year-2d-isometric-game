@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import ie.gmit.sw.ImageLoader;
+import ie.gmit.sw.ImageManager;
 
 /**
  * A singleton class factory class. Instead of loading data every time it is
@@ -24,11 +24,11 @@ public class SpriteFactory {
 		imageMap = new HashMap<>();
 
 		try {
-			imageMap.put("treeImage", ImageLoader.loadImage("./resources/images/objects/0005.png"));
-			imageMap.put("signImage", ImageLoader.loadImage("./resources/images/objects/0002.png"));
-			imageMap.put("chestImage", ImageLoader.loadImage("./resources/images/objects/0003.png"));
-			imageMap.put("holeImage", ImageLoader.loadImage("./resources/images/objects/0009.png"));
-			imageMap.put("blankImage", ImageLoader.loadImage("./resources/images/objects/0000.png"));
+			imageMap.put("treeImage", ImageManager.loadImage("./resources/images/objects/0005.png"));
+			imageMap.put("signImage", ImageManager.loadImage("./resources/images/objects/0002.png"));
+			imageMap.put("chestImage", ImageManager.loadImage("./resources/images/objects/0003.png"));
+			imageMap.put("holeImage", ImageManager.loadImage("./resources/images/objects/0009.png"));
+			imageMap.put("blankImage", ImageManager.loadImage("./resources/images/objects/0000.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -50,7 +50,7 @@ public class SpriteFactory {
 
 		PlayerSprite player = new PlayerSprite();
 
-		player.drawSprite(ImageLoader.loadImages("./resources/images/sprites/default", null));
+		player.drawSprite(ImageManager.loadImages("./resources/images/sprites/default", null));
 
 		return player;
 	}
@@ -64,7 +64,7 @@ public class SpriteFactory {
 
 		PlayerSprite player = new PlayerSprite();
 
-		player.drawSprite(ImageLoader.loadImages("./resources/images/sprites/default", null));
+		player.drawSprite(ImageManager.loadImages("./resources/images/sprites/default", null));
 
 		return player;
 	}
@@ -78,7 +78,7 @@ public class SpriteFactory {
 
 		PlayerSprite player = new PlayerSprite();
 
-		player.drawSprite(ImageLoader.loadImages("./resources/images/sprites/person", null));
+		player.drawSprite(ImageManager.loadImages("./resources/images/sprites/person", null));
 
 		return player;
 	}
@@ -94,7 +94,7 @@ public class SpriteFactory {
 
 		player.setName("Knight 1");
 		player.setPosition(new Point(0, 0));
-		player.drawSprite(ImageLoader.loadImages("./resources/images/sprites/knight", null));
+		player.drawSprite(ImageManager.loadImages("./resources/images/sprites/knight", null));
 
 		return player;
 	}
@@ -104,8 +104,8 @@ public class SpriteFactory {
 	 * 
 	 * @return A tree object.
 	 */
-	public static Tree treeInstance() throws Exception {
-		Tree tree = new Tree();
+	public static TreeSprite treeInstance() throws Exception {
+		TreeSprite tree = new TreeSprite();
 		// set image
 		tree.image = imageMap.get("treeImage");
 		return tree;

@@ -1,14 +1,10 @@
 package ie.gmit.sw.sprites;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.imageio.ImageIO;
-
-import ie.gmit.sw.ImageLoader;
+import ie.gmit.sw.ImageManager;
 
 // Singleton
 
@@ -32,14 +28,14 @@ public class TileFactory {
 
 		try {
 			// flyweight pattern: intrinsic state
-			imageMap.put("stoneImage", ImageLoader.loadImage("./resources/images/ground/0001.png"));
-			imageMap.put("grassImage", ImageLoader.loadImage("./resources/images/ground/0000.png"));
-			imageMap.put("waterImage", ImageLoader.loadImage("./resources/images/ground/0004.png"));
-			imageMap.put("sandImage", ImageLoader.loadImage("./resources/images/ground/0003.png"));
-			imageMap.put("dirtImage", ImageLoader.loadImage("./resources/images/ground/0006.png"));
-			imageMap.put("coastImage", ImageLoader.loadImage("./resources/images/ground/0005.png"));
-			imageMap.put("fineStoneImage", ImageLoader.loadImage("./resources/images/ground/0007.png"));
-			imageMap.put("mossStoneImage", ImageLoader.loadImage("./resources/images/ground/0002.png"));
+			imageMap.put("stoneImage", ImageManager.loadImage("./resources/images/ground/0001.png"));
+			imageMap.put("grassImage", ImageManager.loadImage("./resources/images/ground/0000.png"));
+			imageMap.put("waterImage", ImageManager.loadImage("./resources/images/ground/0004.png"));
+			imageMap.put("sandImage", ImageManager.loadImage("./resources/images/ground/0003.png"));
+			imageMap.put("dirtImage", ImageManager.loadImage("./resources/images/ground/0006.png"));
+			imageMap.put("coastImage", ImageManager.loadImage("./resources/images/ground/0005.png"));
+			imageMap.put("fineStoneImage", ImageManager.loadImage("./resources/images/ground/0007.png"));
+			imageMap.put("mossStoneImage", ImageManager.loadImage("./resources/images/ground/0002.png"));
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -59,8 +55,8 @@ public class TileFactory {
 	 * @param tileName A key string mapped to a tile.
 	 * @return A tile object.
 	 */
-	public static Tile getTileInstance(String tileName) throws Exception {
-		Tile tile = new Tile();
+	public static TileSprite getTileInstance(String tileName) throws Exception {
+		TileSprite tile = new TileSprite();
 		// set image
 		tile.image = imageMap.get(tileName);
 		return tile;

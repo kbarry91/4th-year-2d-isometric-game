@@ -5,14 +5,14 @@ package ie.gmit.sw.sprites;
  * 
  * @author Kevin Barry
  */
-public class Tile extends ObjectSprite {
+public class TileSprite extends ObjectSprite {
 	// flyweight pattern
 	// extrinsic state
 
 	private boolean isTrigger;
 	private int moveCost;
 
-	public Tile() {
+	public TileSprite() {
 
 	}
 

@@ -53,9 +53,12 @@ public class EventManager implements KeyListener {
 
 			// Player has landed on chest grid.
 			if (objects[player.getPosition().getY()][+player.getPosition().getX()] instanceof ChestSprite) {
+				// play sound effect
+				SoundEffect.ACTION.play();
 				MenuDialogs.showInfo("Player collected chest :" + (player.getChestsCollected() + 1) + "/3",
 						"Game Progress ");
 				player.setChestsCollected(player.getChestsCollected() + 1);
+				
 
 				// Remove chest sprite from game.
 				try {
@@ -72,6 +75,8 @@ public class EventManager implements KeyListener {
 				if (player.getChestsCollected() == 3)
 					player.setEndPointActivated(true);
 				else {
+					// play sound effect
+					SoundEffect.BOO.play();
 					MenuDialogs.showInfo("Collect all Chests and return to complete level", "Game Progress");
 				}
 			}

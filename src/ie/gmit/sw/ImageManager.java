@@ -12,9 +12,9 @@ import javax.imageio.ImageIO;
  * 
  * @author Kevin Barry
  */
-public class ImageLoader {
+public class ImageManager {
 
-	public ImageLoader() {
+	public ImageManager() {
 		super();
 	}
 

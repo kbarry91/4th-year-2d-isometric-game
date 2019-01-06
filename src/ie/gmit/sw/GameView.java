@@ -21,9 +21,7 @@ public class GameView extends JPanel implements ActionListener {
 
 	private static GameView myInstance;
 	private PlayerSprite player;
-	private ImageLoader img;
 	private Isometric iso;
-	private EventManager manager;
 	private boolean endMessagePrompt = false;
 	public boolean removedSprite = false;
 	private Timer timer; // Controls the repaint interval.
@@ -52,7 +50,6 @@ public class GameView extends JPanel implements ActionListener {
 	 */
 	public GameView(ObjectSprite[][] matrix, ObjectSprite[][] things, PlayerSprite player) throws Exception {
 		this.player = player;
-		img = new ImageLoader();
 		iso = new Isometric();
 
 		init();
@@ -78,8 +75,8 @@ public class GameView extends JPanel implements ActionListener {
 	}
 
 	private void init() throws Exception {
-		tiles = ImageLoader.loadImages("./resources/images/ground", tiles);
-		objects = ImageLoader.loadImages("./resources/images/objects", objects);
+		tiles = ImageManager.loadImages("./resources/images/ground", tiles);
+		objects = ImageManager.loadImages("./resources/images/objects", objects);
 	}
 
 	/**
@@ -99,6 +96,8 @@ public class GameView extends JPanel implements ActionListener {
 		}
 
 		if (player.isEndPointActivated()) {
+			// play sound effect
+			SoundEffect.APPLAUSE.play();
 			MenuDialogs.showInfo("Congratulations " + player.getName() + " Level complete!", "Game Progress ");
 			System.exit(0);
 		}
