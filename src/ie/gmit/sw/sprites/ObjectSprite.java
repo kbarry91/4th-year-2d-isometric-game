@@ -2,7 +2,14 @@ package ie.gmit.sw.sprites;
 
 import java.awt.image.BufferedImage;
 
+/*
+ * An abstract concrete flyweight class representing a sprite object.
+ * 
+ * @author Kevin Barry
+ * */
 public abstract class ObjectSprite implements Spriteable {
+	
+	// Allows different name, postion and image for each sprite.
 	protected BufferedImage image;
 	protected Point position;
 	protected String name;

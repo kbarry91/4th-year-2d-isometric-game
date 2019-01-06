@@ -1,5 +1,10 @@
 package ie.gmit.sw.sprites;
 
+/*
+ * Used to change the direction of a sprite.
+ * 
+ * @author Kevin Barry
+ * */
 public enum Direction {
 	UP (0), 
 	DOWN (1), 

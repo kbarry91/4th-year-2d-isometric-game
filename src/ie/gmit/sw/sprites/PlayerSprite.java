@@ -1,18 +1,13 @@
 package ie.gmit.sw.sprites;
 
-/*
- *   
- *   BufferedImage[][]
- *   --------------------------
- *   {U0, U1, U2, U3}, =>Up
- *   {D0, D1, D2, D3}, =>Down
- *   {L0, L1, L2, L3}, =>Left
- *   {R0, R1, R2, R3}, =>Right
- * 
- */
 import java.awt.image.BufferedImage;
 
-public class PlayerSprite implements Spriteable { // Sprite belongs in some sort of hierarchy....
+/**
+ * Represents a Player Sprite. This is the main user controlled game piece.
+ * 
+ * @author Kevin Barry
+ */
+public class PlayerSprite implements Spriteable {
 
 	private String name; // The name of the sprite
 	private BufferedImage[][] images = new BufferedImage[4][3]; // The images used in the animation
@@ -22,16 +17,30 @@ public class PlayerSprite implements Spriteable { // Sprite belongs in some sort
 	private int chestsCollected = 0;
 	private boolean endPointActivated = false;
 
+	/**
+	 * Creates a new <code>PlayerSprite</code>.
+	 */
 	public PlayerSprite() {
 		super();
 	}
 
+	/**
+	 * Creates a new <code>PlayerSprite</code>.
+	 *
+	 * @param name The name of the player.
+	 * @param p    The starting position of player..
+	 */
 	public PlayerSprite(String name, Point p) {
 		super();
 		this.name = name;
 		this.position = p;
 	}
 
+	/**
+	 * Draws the sprite.
+	 *
+	 * @param img Array of images for sprite.
+	 */
 	public void drawSprite(BufferedImage[] img) {
 		int row = 0, col = 0;
 		for (int i = 0; i < img.length; i++) {
@@ -45,11 +54,6 @@ public class PlayerSprite implements Spriteable { // Sprite belongs in some sort
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see ie.gmit.sw.Spriteable#getName()
-	 */
 	@Override
 	public String getName() {
 		return name;
@@ -60,11 +64,6 @@ public class PlayerSprite implements Spriteable { // Sprite belongs in some sort
 		this.name = name;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see ie.gmit.sw.Spriteable#getPosition()
-	 */
 	@Override
 	public Point getPosition() {
 		return position;
@@ -79,6 +78,9 @@ public class PlayerSprite implements Spriteable { // Sprite belongs in some sort
 		return images[direction.getOrientation()][index];
 	}
 
+	/**
+	 * @param d The direction of the sprite image.
+	 */
 	public BufferedImage step(Direction d) {
 		setDirection(d);
 		if (index < images[direction.getOrientation()].length - 1) {
@@ -90,22 +92,16 @@ public class PlayerSprite implements Spriteable { // Sprite belongs in some sort
 		return images[d.getOrientation()][index];
 	}
 
-	public void setDirection(Direction d) {
-		direction = d;
-	}
-
-	public Direction getDirection() {
-		return this.direction;
-	}
-
-	public void move() { // This method is suspiciously like one I've seen already....
+	/**
+	 * Sets the sprite position and moves unless sprite is at edge od board.
+	 */
+	public void move() {
 		step(direction);
 
 		switch (direction.getOrientation()) {
 		case 1:
 			if (position.getY() + 1 < 10)// restrict player from moving off game grid
 				position.setY(position.getY() + 1); // UP
-			System.out.println("DEBUG: MOve In playersprite");
 			break;
 		case 2:
 			if (position.getX() - 1 > -1)
@@ -136,5 +132,13 @@ public class PlayerSprite implements Spriteable { // Sprite belongs in some sort
 
 	public void setEndPointActivated(boolean endPointActivated) {
 		this.endPointActivated = endPointActivated;
+	}
+
+	public void setDirection(Direction d) {
+		direction = d;
+	}
+
+	public Direction getDirection() {
+		return this.direction;
 	}
 }
