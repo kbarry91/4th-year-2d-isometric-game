@@ -36,4 +36,9 @@ public class MenuDialogs {
 				"Welcome " + player.getName(), JOptionPane.INFORMATION_MESSAGE);
 
 	}
+	public static void showInfo(String message) {
+		JOptionPane.showMessageDialog(null,message,
+				"Game Progress " , JOptionPane.INFORMATION_MESSAGE);
+
+	}
 }

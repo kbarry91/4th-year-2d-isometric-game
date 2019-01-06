@@ -103,7 +103,7 @@ public class GameWindow {
 					SpriteFactory.treeInstance(), SpriteFactory.treeInstance(), SpriteFactory.treeInstance(),
 					SpriteFactory.treeInstance(), SpriteFactory.treeInstance(), SpriteFactory.treeInstance(),
 					SpriteFactory.airInstance() },
-			{ SpriteFactory.treeInstance(), SpriteFactory.airInstance(), SpriteFactory.airInstance(),
+			{ SpriteFactory.treeInstance(), SpriteFactory.chestInstance(), SpriteFactory.airInstance(),
 					SpriteFactory.airInstance(), SpriteFactory.treeInstance(), SpriteFactory.treeInstance(),
 					SpriteFactory.treeInstance(), SpriteFactory.treeInstance(), SpriteFactory.treeInstance(),
 					SpriteFactory.airInstance() },
@@ -180,7 +180,7 @@ public class GameWindow {
 //				"Welcome " + player.getName(), JOptionPane.INFORMATION_MESSAGE);
 
 		GameView view = new GameView(model, objects, player);
-		EventManager manager = new EventManager(player);
+		EventManager manager = new EventManager(player,objects);
 		Dimension d = new Dimension(Properties.getDefaultViewSize(), Properties.getDefaultViewSize() / 2);
 		view.setPreferredSize(d);
 		view.setMinimumSize(d);
