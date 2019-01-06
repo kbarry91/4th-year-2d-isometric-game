@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
  * 
  * @author Kevin Barry
  * */
-public abstract class ObjectSprite implements Spriteable {
+public abstract class ObjectSprite implements SpriteInterface {
 	
 	// Allows different name, postion and image for each sprite.
 	protected BufferedImage image;

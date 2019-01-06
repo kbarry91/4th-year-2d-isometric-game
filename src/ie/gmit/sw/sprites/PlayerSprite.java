@@ -2,12 +2,14 @@ package ie.gmit.sw.sprites;
 
 import java.awt.image.BufferedImage;
 
+import ie.gmit.sw.Direction;
+
 /**
  * Represents a Player Sprite. This is the main user controlled game piece.
  * 
  * @author Kevin Barry
  */
-public class PlayerSprite implements Spriteable {
+public class PlayerSprite implements SpriteInterface {
 
 	private String name; // The name of the sprite
 	private BufferedImage[][] images = new BufferedImage[4][3]; // The images used in the animation

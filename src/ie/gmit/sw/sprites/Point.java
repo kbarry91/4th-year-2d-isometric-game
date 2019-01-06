@@ -1,9 +1,20 @@
 package ie.gmit.sw.sprites;
 
+/*
+ * Represents a set of x and y co-ordinates.
+ * 
+ * @author Kevin Barry
+ */
 public class Point {
 	private int x;
 	private int y;
-	
+
+	/**
+	 * Creates a new <code>Point</code> object.
+	 *
+	 * @param x The x value.
+	 * @param y The y value.
+	 */
 	public Point(int x, int y) {
 		super();
 		this.x = x;

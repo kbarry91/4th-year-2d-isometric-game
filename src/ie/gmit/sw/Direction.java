@@ -1,4 +1,4 @@
-package ie.gmit.sw.sprites;
+package ie.gmit.sw;
 
 /*
  * Used to change the direction of a sprite.

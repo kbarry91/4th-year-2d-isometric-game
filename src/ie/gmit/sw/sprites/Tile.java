@@ -1,10 +1,15 @@
 package ie.gmit.sw.sprites;
 
+/**
+ * Represents Tile Sprite. A subclass of <code>ObjectSprite</code>.
+ * 
+ * @author Kevin Barry
+ */
 public class Tile extends ObjectSprite {
-	// flyweight pattern: extrinsic state
+	// flyweight pattern
+	// extrinsic state
 
 	private boolean isTrigger;
-
 	private int moveCost;
 
 	public Tile() {

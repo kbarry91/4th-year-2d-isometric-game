@@ -21,8 +21,8 @@ public class GameView extends JPanel implements ActionListener {
 
 	private static GameView myInstance;
 	private PlayerSprite player;
-	private ImageManager img;
-	private Iso iso;
+	private ImageLoader img;
+	private Isometric iso;
 	private EventManager manager;
 	private boolean endMessagePrompt = false;
 	public boolean removedSprite = false;
@@ -52,8 +52,8 @@ public class GameView extends JPanel implements ActionListener {
 	 */
 	public GameView(ObjectSprite[][] matrix, ObjectSprite[][] things, PlayerSprite player) throws Exception {
 		this.player = player;
-		img = new ImageManager();
-		iso = new Iso();
+		img = new ImageLoader();
+		iso = new Isometric();
 
 		init();
 		this.matrix = matrix;
@@ -78,8 +78,8 @@ public class GameView extends JPanel implements ActionListener {
 	}
 
 	private void init() throws Exception {
-		tiles = ImageManager.loadImages("./resources/images/ground", tiles);
-		objects = ImageManager.loadImages("./resources/images/objects", objects);
+		tiles = ImageLoader.loadImages("./resources/images/ground", tiles);
+		objects = ImageLoader.loadImages("./resources/images/objects", objects);
 	}
 
 	/**
@@ -103,7 +103,7 @@ public class GameView extends JPanel implements ActionListener {
 			System.exit(0);
 		}
 
-		this.repaint();// calls paintcomponent from this class not jpanel
+		this.repaint();// calls paint component from this class not jpanel
 	}
 
 	/**

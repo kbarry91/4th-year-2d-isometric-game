@@ -4,7 +4,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import ie.gmit.sw.sprites.ChestSprite;
-import ie.gmit.sw.sprites.Direction;
 import ie.gmit.sw.sprites.HoleSprite;
 import ie.gmit.sw.sprites.ObjectSprite;
 import ie.gmit.sw.sprites.PlayerSprite;
@@ -60,7 +59,7 @@ public class EventManager implements KeyListener {
 
 				// Remove chest sprite from game.
 				try {
-					objects[player.getPosition().getY()][+player.getPosition().getX()] = SpriteFactory.airInstance();
+					objects[player.getPosition().getY()][+player.getPosition().getX()] = SpriteFactory.blankInstance();
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}

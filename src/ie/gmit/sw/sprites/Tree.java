@@ -1,7 +1,7 @@
 package ie.gmit.sw.sprites;
 
 /**
- * Represents a Hole Sprite.
+ * Represents a Tree Sprite.
  * 
  * @author Kevin Barry
  */
