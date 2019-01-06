@@ -7,8 +7,8 @@ import ie.gmit.sw.sprites.PlayerSprite;
 
 public class MenuDialogs {
 
-	//private String playerSelection;
-	//private String playerName;
+	// private String playerSelection;
+	// private String playerName;
 
 	public static String playerSelect() {
 		String defaultValue = "Type1";
@@ -30,17 +30,18 @@ public class MenuDialogs {
 			return defaultValue;
 		return name;
 	}
-	public static void showInfo(PlayerSprite player,String p) {
+
+	public static void showInfo(PlayerSprite player, String p) {
 		JOptionPane.showMessageDialog(null,
-				"hi " + player.getName() + "! ,Get ready to play using the " + p + " Character",
-				"Welcome " + player.getName()+"\nAim : Collect all chests and proceed to hole", JOptionPane.INFORMATION_MESSAGE);
+				"hi " + player.getName() + "!, Get ready to play using the " + p
+						+ " Character\nAim : Collect all chests and proceed to hole",
+				"Instructions", JOptionPane.INFORMATION_MESSAGE);
 
 	}
-	public static void showInfo(String message,String header) {
-		JOptionPane.showMessageDialog(null,message,
-				header , JOptionPane.INFORMATION_MESSAGE);
+
+	public static void showInfo(String message, String header) {
+		JOptionPane.showMessageDialog(null, message, header, JOptionPane.INFORMATION_MESSAGE);
 
 	}
-	
-	
+
 }

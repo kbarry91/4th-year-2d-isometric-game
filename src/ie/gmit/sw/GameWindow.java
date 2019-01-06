@@ -1,34 +1,29 @@
 package ie.gmit.sw;
 
 import java.awt.*;
-import java.awt.event.KeyListener;
-
 import javax.swing.*;
-
 import ie.gmit.sw.sprites.ObjectSprite;
 import ie.gmit.sw.sprites.PlayerSprite;
 import ie.gmit.sw.sprites.Point;
 import ie.gmit.sw.sprites.SpriteFactory;
-import ie.gmit.sw.sprites.Spriteable;
 import ie.gmit.sw.sprites.TileFactory;
 
+/**
+ * Represents a GameWindow. This is the main game window that acts as a
+ * container for <code>GameView</code>.
+ * 
+ * @author Kevin Barry
+ */
 public class GameWindow {
+
+	private PlayerSprite player;
+	private String playerSelect;
+	private String playerName;
+
 	/*
-	 * This matrix represents the isometric game model, with each number mapping to
-	 * an image in the images/ground/ directory.
+	 * This matrix represents the isometric game model of tiles demonstrating the
+	 * Flyweight and factory pattern.
 	 */
-//	private int[][] model = { 
-//			{ 1, 0, 0, 0, 0, 0 , 0, 0, 0, 2},
-//			{ 0, 1, 0, 0, 0, 0 , 0, 0, 0, 2},
-//			{ 0, 0, 2, 0, 0, 0 , 0, 0, 0, 2},
-//			{ 0, 0, 0, 1, 0, 0 , 0, 0, 0, 2},
-//			{ 2, 2, 2, 2, 1, 0 , 0, 0, 0, 2},
-//			{ 3, 3, 3, 3, 1, 1 , 1, 0, 0, 1},
-//			{ 5, 5, 5, 5, 3, 3 , 1, 0, 0, 1},
-//			{ 4, 4, 4, 5, 3, 3 , 1, 0, 0, 0},
-//			{ 4, 4, 4, 4, 5, 3 , 1, TileFactory.getTileInstance("dirtImage"), TileFactory.getTileInstance("dirtImage"), TileFactory.getTileInstance("dirtImage")},
-//			{ 4, 4, 4, 4, 4, 3 , 1, 7, 7, 7}
-//	};
 	private ObjectSprite[][] model = {
 			{ TileFactory.getTileInstance("stoneImage"), TileFactory.getTileInstance("grassImage"),
 					TileFactory.getTileInstance("grassImage"), TileFactory.getTileInstance("grassImage"),
@@ -81,23 +76,10 @@ public class GameWindow {
 					TileFactory.getTileInstance("stoneImage"), TileFactory.getTileInstance("fineStoneImage"),
 					TileFactory.getTileInstance("fineStoneImage"), TileFactory.getTileInstance("fineStoneImage") } };
 
-	// This matrix is a representation of where objects (things) in the game are
-	// placed
-//	private int[][] objects = { 
-//			{ 0, 0, 0, 5, 5, 5 , 5, 5, 5, 0},
-//			{ 5, 0, 0, 0, 5, 5 , 5, 5, 5, 0},
-//			{ 5, 5, 0, 0, 0, 5 , 5, 5, 5, 9},
-//			{ 5, 5, 2, 0, 0, 0 , 5, 5, 5, 0},
-//			{ 0, 0, 0, 0, 0, 0 , 0, 5, 5, 0},
-//			{ 0, 0, 0, 0, 0, 0 , 0, 0, 5, 0},
-//			{ 0, 0, 0, 0, 0, 3 , 0, 0, 0, 0},
-//			{ 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0},
-//			{ 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0},
-//			{ 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0}
-//	};
-//	
-
-//	Flyweight & Factory patterns
+	/*
+	 * This matrix represents the isometric game model of objects demonstrating the
+	 * Flyweight and factory pattern.
+	 */
 	private ObjectSprite[][] objects = {
 			{ SpriteFactory.airInstance(), SpriteFactory.airInstance(), SpriteFactory.airInstance(),
 					SpriteFactory.treeInstance(), SpriteFactory.treeInstance(), SpriteFactory.treeInstance(),
@@ -140,23 +122,20 @@ public class GameWindow {
 					SpriteFactory.airInstance(), SpriteFactory.airInstance(), SpriteFactory.airInstance(),
 					SpriteFactory.airInstance() } };
 
-	private ImageManager img;
-	private PlayerSprite player;
-	private String playerSelect;
-	private String playerName;
-
+	/**
+	 * Creates a new <code>GameWindow</code>.
+	 *
+	 * @throws Exception
+	 */
 	public GameWindow() throws Exception {
 
-		img = new ImageManager();
+		// img = new ImageManager();
 
 		// prompt pop up boxes to input player setup
 		playerSelect = MenuDialogs.playerSelect();
 		playerName = MenuDialogs.playerName();
 
-		System.out.println("DEBUG : Player Select :" + playerSelect);
-		System.out.println("DEBUG : Player Name :" + playerName);
-
-		// switch player sprite based on user input
+		// Create player object using factory pattern depending on user input.
 		switch (playerSelect) {
 		case "Type1":
 			player = SpriteFactory.player1Instance();
@@ -176,14 +155,13 @@ public class GameWindow {
 		// Show info dialog.
 		MenuDialogs.showInfo(player, playerSelect);
 		// show controls
-		MenuDialogs.showInfo("Change Direction : Arrow keys\nMove Player      : X\nCollect Chest    : C\nEnter end hole  : C","Controls");
-
-//		JOptionPane.showMessageDialog(null,
-//				"hi " + playerName + "! ,Get ready to play using the " + playerSelect + " Character",
-//				"Welcome " + player.getName(), JOptionPane.INFORMATION_MESSAGE);
+		MenuDialogs.showInfo(
+				"Change Direction : Arrow keys\nMove Player      : X\nCollect Chest    : C\nEnter end hole  : C",
+				"Controls");
 
 		GameView view = new GameView(model, objects, player);
-		EventManager manager = new EventManager(player,objects);
+		EventManager manager = new EventManager(player, objects);
+
 		Dimension d = new Dimension(Properties.getDefaultViewSize(), Properties.getDefaultViewSize() / 2);
 		view.setPreferredSize(d);
 		view.setMinimumSize(d);
