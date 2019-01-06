@@ -1,0 +1,39 @@
+package ie.gmit.sw;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+import ie.gmit.sw.sprites.PlayerSprite;
+
+public class MenuDialogs {
+
+	//private String playerSelection;
+	//private String playerName;
+
+	public static String playerSelect() {
+		String defaultValue = "Type1";
+		Object[] selectionValues = { "Type1", "Type2" };
+		String initialSelection = "Type1";
+		Object selection = JOptionPane.showInputDialog(null, "Select a character?", "Character Select",
+				JOptionPane.QUESTION_MESSAGE, null, selectionValues, initialSelection);
+		System.out.println(selection);
+		if ((String) selection == null)
+			return defaultValue;
+
+		return (String) selection;
+	}
+
+	public static String playerName() {
+		String defaultValue = "Player1";
+		String name = JOptionPane.showInputDialog("Enter your name?", "Player1");
+		if (name == null)
+			return defaultValue;
+		return name;
+	}
+	public static void showInfo(PlayerSprite player,String p) {
+		JOptionPane.showMessageDialog(null,
+				"hi " + player.getName() + "! ,Get ready to play using the " + p + " Character",
+				"Welcome " + player.getName(), JOptionPane.INFORMATION_MESSAGE);
+
+	}
+}

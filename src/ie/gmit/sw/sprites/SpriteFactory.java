@@ -43,6 +43,23 @@ public class SpriteFactory {
 
 		return player;
 	}
+	
+	public static PlayerSprite player1Instance() throws Exception {
+
+		PlayerSprite player = new PlayerSprite();
+
+		player.drawSprite(ImageManager.loadImages("./resources/images/sprites/default", null));
+
+		return player;
+	}
+	public static PlayerSprite player2Instance() throws Exception {
+
+		PlayerSprite player = new PlayerSprite();
+
+		player.drawSprite(ImageManager.loadImages("./resources/images/sprites/person", null));
+
+		return player;
+	}
 
 	public static PlayerSprite knightInstance() throws Exception {
 

@@ -43,7 +43,7 @@ public class TileFactory {
 	public static Tile getTileInstance(String tileName) throws Exception {
 		Tile tile = new Tile();
 		// set image
-		tile.image = imageMap.get("tileName");
+		tile.image = imageMap.get(tileName);
 		return tile;
 	}
 
