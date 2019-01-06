@@ -3,18 +3,17 @@ package ie.gmit.sw;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-
 import ie.gmit.sw.sprites.Chest;
 import ie.gmit.sw.sprites.Direction;
 import ie.gmit.sw.sprites.ObjectSprite;
 import ie.gmit.sw.sprites.PlayerSprite;
 
-public class EventManager implements KeyListener{
+public class EventManager implements KeyListener {
 
 	private PlayerSprite player;
 	private ObjectSprite[][] objects;
-	
-	public EventManager(PlayerSprite player,ObjectSprite[][] objects) {
+
+	public EventManager(PlayerSprite player, ObjectSprite[][] objects) {
 		this.player = player;
 		this.objects = objects;
 	}
@@ -24,7 +23,7 @@ public class EventManager implements KeyListener{
 //	}
 //	
 	public void keyPressed(KeyEvent e) {
-		
+
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			System.out.println("Player moving right");
 			player.setDirection(Direction.RIGHT);
@@ -40,27 +39,32 @@ public class EventManager implements KeyListener{
 		} else if (e.getKeyCode() == KeyEvent.VK_Z) {
 			GameView view = GameView.getInstance();
 			view.toggleView();
+
+		} else if (e.getKeyCode() == KeyEvent.VK_C) {
+			System.out.println("Debug: EventManger: C(attack) pressed");
+			if (objects[player.getPosition().getY()][+player.getPosition().getX()] instanceof Chest) {
+				MenuDialogs.showInfo("Player collected chest :"+(player.getChestsCollected()+1)+"/3");
+				player.setChestsCollected(player.getChestsCollected()+1);
+			}
 		} else if (e.getKeyCode() == KeyEvent.VK_X) {
 			System.out.println("Move");
 			player.move();
 			// Check if player lands on grid square with chest
-			if(objects[player.getPosition().getY()][+player.getPosition().getX()] instanceof Chest) {
-				System.out.println("PLayer collided with chest");
-				MenuDialogs.showInfo("Player collided with chest");
-			}
+
 		} else {
 			return;
 		}
-		//System.out.println("Debug: EventManger playerpos:x:"+player.getPosition().getX()+" y:"+player.getPosition().getY());
+		// System.out.println("Debug: EventManger
+		// playerpos:x:"+player.getPosition().getX()+" y:"+player.getPosition().getY());
 //	 if (objects[player.getPosition().getX()][+player.getPosition().getY()]) {
 //		 
 //	 }
-		//System.out.println("Obtype:"+objects[player.getPosition().getY()][+player.getPosition().getX()].getClass());
+		// System.out.println("Obtype:"+objects[player.getPosition().getY()][+player.getPosition().getX()].getClass());
 	}
-	
+
 	public void keyReleased(KeyEvent e) {
 	} // Ignore
-	
+
 	public void keyTyped(KeyEvent e) {
 	} // Ignore
 }

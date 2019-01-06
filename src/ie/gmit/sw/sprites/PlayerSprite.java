@@ -18,7 +18,7 @@ public class PlayerSprite implements Spriteable { //Sprite belongs in some sort 
 	private Direction direction = Direction.DOWN; //The current orientation of the sprite
 	private int index = 0; //The current image index.
 	private Point position; //The current x, y position
-	
+	private int chestsCollected = 0;
 	public PlayerSprite() {
 		super();
 	}
@@ -117,5 +117,13 @@ public class PlayerSprite implements Spriteable { //Sprite belongs in some sort 
 			System.out.println(direction);
 			break;
 		}
+	}
+
+	public int getChestsCollected() {
+		return chestsCollected;
+	}
+
+	public void setChestsCollected(int chestsCollected) {
+		this.chestsCollected = chestsCollected;
 	}
 }

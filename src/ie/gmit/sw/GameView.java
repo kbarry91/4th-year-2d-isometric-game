@@ -89,6 +89,11 @@ public class GameView extends JPanel implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) { // This is called each time the timer reaches zero
+		if (player.getChestsCollected()==3) {
+			MenuDialogs.showInfo("Congratulations all chests collected!");
+			
+			System.exit(0);
+		}
 		this.repaint();// calls paintcomponent from this class not jpanel
 	}
 
