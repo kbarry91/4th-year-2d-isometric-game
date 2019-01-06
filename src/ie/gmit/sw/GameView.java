@@ -47,6 +47,7 @@ public class GameView extends JPanel implements ActionListener {
 	 * @param matrix Model for tiles.
 	 * @param things Model for objects.
 	 * @param player A PlayerSprite object.
+	 * @throws Exception
 	 */
 	public GameView(ObjectSprite[][] matrix, ObjectSprite[][] things, PlayerSprite player) throws Exception {
 		this.player = player;

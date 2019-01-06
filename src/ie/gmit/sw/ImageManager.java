@@ -22,7 +22,7 @@ public class ImageManager {
 	 * Loads an array buffered images for animations.
 	 * 
 	 * @param directory The directory path of the images.
-	 * @param Array     of buffered images to manipulate.
+	 * @param img Array of buffered images to manipulate.
 	 * @return An array of bufferedImages.
 	 */
 	public static BufferedImage[] loadImages(String directory, BufferedImage[] img) throws Exception {

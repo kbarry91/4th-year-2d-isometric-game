@@ -3,7 +3,6 @@ package ie.gmit.sw;
 /**
  * Main Runner class, sets up gameWindow and runs on its own thread.
  * 
- * @see javax.swing.SwingUtilities.invokeLater
  * @author Kevin Barry
  * @version 1.0
  */
