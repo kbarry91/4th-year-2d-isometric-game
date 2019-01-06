@@ -121,7 +121,7 @@ public class GameWindow {
 					SpriteFactory.airInstance() },
 			{ SpriteFactory.airInstance(), SpriteFactory.airInstance(), SpriteFactory.airInstance(),
 					SpriteFactory.airInstance(), SpriteFactory.airInstance(), SpriteFactory.airInstance(),
-					SpriteFactory.airInstance(), SpriteFactory.airInstance(), SpriteFactory.treeInstance(),
+					SpriteFactory.airInstance(), SpriteFactory.chestInstance(), SpriteFactory.treeInstance(),
 					SpriteFactory.airInstance() },
 			{ SpriteFactory.airInstance(), SpriteFactory.airInstance(), SpriteFactory.airInstance(),
 					SpriteFactory.airInstance(), SpriteFactory.airInstance(), SpriteFactory.chestInstance(),

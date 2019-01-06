@@ -32,6 +32,7 @@ public class GameView extends JPanel implements ActionListener {
 	private Iso iso;
 	private EventManager manager;
 	private boolean endMessagePrompt=false;
+	public boolean removedSprite=false;
 	private Timer timer; // Controls the repaint interval.
 
 	// Do we really need two models like this?
