@@ -31,7 +31,7 @@ public class GameView extends JPanel implements ActionListener {
 	private ImageManager img;
 	private Iso iso;
 	private EventManager manager;
-
+	private boolean endMessagePrompt=false;
 	private Timer timer; // Controls the repaint interval.
 
 	// Do we really need two models like this?
@@ -89,11 +89,19 @@ public class GameView extends JPanel implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) { // This is called each time the timer reaches zero
-		if (player.getChestsCollected()==3) {
-			MenuDialogs.showInfo("Congratulations all chests collected!");
+		
+		if (player.getChestsCollected()==3 && !endMessagePrompt) {
+			MenuDialogs.showInfo("All chests collected!\n Proceed to hole to finish level","Game Progress ");
+			endMessagePrompt=true;
 			
+			
+		}
+		if (player.isEndPointActivated()) {
+			MenuDialogs.showInfo("Congratulations "+player.getName()+" Level complete!","Game Progress ");
+
 			System.exit(0);
 		}
+		
 		this.repaint();// calls paintcomponent from this class not jpanel
 	}
 

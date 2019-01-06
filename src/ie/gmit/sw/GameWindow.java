@@ -175,6 +175,9 @@ public class GameWindow {
 
 		// Show info dialog.
 		MenuDialogs.showInfo(player, playerSelect);
+		// show controls
+		MenuDialogs.showInfo("Change Direction : Arrow keys\nMove Player      : X\nCollect Chest    : C\nEnter end hole  : C","Controls");
+
 //		JOptionPane.showMessageDialog(null,
 //				"hi " + playerName + "! ,Get ready to play using the " + playerSelect + " Character",
 //				"Welcome " + player.getName(), JOptionPane.INFORMATION_MESSAGE);

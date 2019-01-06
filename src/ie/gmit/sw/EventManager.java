@@ -5,6 +5,7 @@ import java.awt.event.KeyListener;
 
 import ie.gmit.sw.sprites.Chest;
 import ie.gmit.sw.sprites.Direction;
+import ie.gmit.sw.sprites.Hole;
 import ie.gmit.sw.sprites.ObjectSprite;
 import ie.gmit.sw.sprites.PlayerSprite;
 
@@ -40,12 +41,17 @@ public class EventManager implements KeyListener {
 			GameView view = GameView.getInstance();
 			view.toggleView();
 
-		} else if (e.getKeyCode() == KeyEvent.VK_C) {
+		} 
+		else if (e.getKeyCode() == KeyEvent.VK_C) {
 			System.out.println("Debug: EventManger: C(attack) pressed");
 			if (objects[player.getPosition().getY()][+player.getPosition().getX()] instanceof Chest) {
-				MenuDialogs.showInfo("Player collected chest :"+(player.getChestsCollected()+1)+"/3");
-				player.setChestsCollected(player.getChestsCollected()+1);
+				MenuDialogs.showInfo("Player collected chest :" + (player.getChestsCollected() + 1) + "/3","Game Progress ");
+				player.setChestsCollected(player.getChestsCollected() + 1);
 			}
+			if (objects[player.getPosition().getY()][+player.getPosition().getX()] instanceof Hole&&player.getChestsCollected()==3) {
+				player.setEndPointActivated(true);;
+			}
+			
 		} else if (e.getKeyCode() == KeyEvent.VK_X) {
 			System.out.println("Move");
 			player.move();

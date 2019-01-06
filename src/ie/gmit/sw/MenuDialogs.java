@@ -33,12 +33,14 @@ public class MenuDialogs {
 	public static void showInfo(PlayerSprite player,String p) {
 		JOptionPane.showMessageDialog(null,
 				"hi " + player.getName() + "! ,Get ready to play using the " + p + " Character",
-				"Welcome " + player.getName(), JOptionPane.INFORMATION_MESSAGE);
+				"Welcome " + player.getName()+"\nAim : Collect all chests and proceed to hole", JOptionPane.INFORMATION_MESSAGE);
 
 	}
-	public static void showInfo(String message) {
+	public static void showInfo(String message,String header) {
 		JOptionPane.showMessageDialog(null,message,
-				"Game Progress " , JOptionPane.INFORMATION_MESSAGE);
+				header , JOptionPane.INFORMATION_MESSAGE);
 
 	}
+	
+	
 }

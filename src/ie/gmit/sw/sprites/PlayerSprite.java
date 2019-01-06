@@ -19,6 +19,7 @@ public class PlayerSprite implements Spriteable { //Sprite belongs in some sort 
 	private int index = 0; //The current image index.
 	private Point position; //The current x, y position
 	private int chestsCollected = 0;
+	private boolean endPointActivated = false;
 	public PlayerSprite() {
 		super();
 	}
@@ -125,5 +126,13 @@ public class PlayerSprite implements Spriteable { //Sprite belongs in some sort 
 
 	public void setChestsCollected(int chestsCollected) {
 		this.chestsCollected = chestsCollected;
+	}
+
+	public boolean isEndPointActivated() {
+		return endPointActivated;
+	}
+
+	public void setEndPointActivated(boolean endPointActivated) {
+		this.endPointActivated = endPointActivated;
 	}
 }
